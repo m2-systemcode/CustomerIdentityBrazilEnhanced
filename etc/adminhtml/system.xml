@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="customeridentitybrazil">
+            <group id="enhanced_notice" showInDefault="0" showInWebsite="0" showInStore="0">
+                <field id="enhanced_notice_message" showInDefault="0" showInWebsite="0" showInStore="0"/>
+            </group>
+            <group id="enhanced_sync" translate="label comment" sortOrder="40"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Extra Fields Synchronization</label>
+                <comment><![CDATA[Optional sync from dedicated attributes to Magento native customer
+fields.]]></comment>
+                <depends>
+                    <field id="general/enabled">1</field>
+                </depends>
+                <field id="copy_taxvat" translate="label comment" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Copy CPF/CNPJ to Tax/VAT</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Sync the CPF or CNPJ attribute value to the native Tax/VAT field.</comment>
+                </field>
+                <field id="copy_firstname" translate="label comment" type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use First Name as Social Name</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>When enabled, Social Name is not shown and First Name is used as Razão Social
+for corporations.</comment>
+                </field>
+                <field id="copy_lastname" translate="label comment" type="select" sortOrder="30"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use Last Name as Trade Name</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>When enabled, Trade Name is not shown and Last Name is used as Nome Fantasia
+for corporations.</comment>
+                </field>
+            </group>
+            <group id="individual">
+                <comment><![CDATA[CPF uses a dedicated customer attribute.
+Configure RG visibility separately.]]></comment>
+                <field id="taxvat" showInDefault="0" showInWebsite="0" showInStore="0"/>
+                <field id="rg" showInDefault="0" showInWebsite="0" showInStore="0"/>
+                <field id="cpf_show" translate="label comment" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>CPF</label>
+                    <source_model>SystemCode\CustomerIdentityBrazil\Model\Config\Source\FieldVisibility</source_model>
+                    <backend_model>SystemCode\CustomerIdentityBrazilEnhanced\Model\Config\Backend\Show\Customer</backend_model>
+                    <comment>Visibility and validation for the CPF customer attribute.</comment>
+                </field>
+                <field id="rg_show" translate="label comment" type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>RG</label>
+                    <source_model>SystemCode\CustomerIdentityBrazil\Model\Config\Source\FieldVisibility</source_model>
+                    <backend_model>SystemCode\CustomerIdentityBrazilEnhanced\Model\Config\Backend\Show\Customer</backend_model>
+                    <comment>Visibility and validation for the RG customer attribute.</comment>
+                </field>
+            </group>
+            <group id="corporation">
+                <comment><![CDATA[CNPJ, Social Name and Trade Name use dedicated customer attributes.
+Configure IE separately.]]></comment>
+                <field id="taxvat" showInDefault="0" showInWebsite="0" showInStore="0"/>
+                <field id="ie" showInDefault="0" showInWebsite="0" showInStore="0"/>
+                <field id="cnpj_show" translate="label comment" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>CNPJ</label>
+                    <source_model>SystemCode\CustomerIdentityBrazil\Model\Config\Source\FieldVisibility</source_model>
+                    <backend_model>SystemCode\CustomerIdentityBrazilEnhanced\Model\Config\Backend\Show\Customer</backend_model>
+                    <comment>Visibility and validation for the CNPJ customer attribute.</comment>
+                </field>
+                <field id="ie_show" translate="label comment" type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>IE</label>
+                    <source_model>SystemCode\CustomerIdentityBrazil\Model\Config\Source\FieldVisibility</source_model>
+                    <backend_model>SystemCode\CustomerIdentityBrazilEnhanced\Model\Config\Backend\Show\Customer</backend_model>
+                    <comment>Visibility and validation for the IE customer attribute.</comment>
+                </field>
+                <field id="socialname_show" translate="label comment" type="select" sortOrder="30"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Social Name</label>
+                    <source_model>SystemCode\CustomerIdentityBrazil\Model\Config\Source\FieldVisibility</source_model>
+                    <backend_model>SystemCode\CustomerIdentityBrazilEnhanced\Model\Config\Backend\Show\Customer</backend_model>
+                    <comment>Visibility and validation for the Social Name customer attribute.</comment>
+                    <depends>
+                        <field id="enhanced_sync/copy_firstname">0</field>
+                    </depends>
+                </field>
+                <field id="tradename_show" translate="label comment" type="select" sortOrder="40"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Trade Name</label>
+                    <source_model>SystemCode\CustomerIdentityBrazil\Model\Config\Source\FieldVisibility</source_model>
+                    <backend_model>SystemCode\CustomerIdentityBrazilEnhanced\Model\Config\Backend\Show\Customer</backend_model>
+                    <comment>Visibility and validation for the Trade Name customer attribute.</comment>
+                    <depends>
+                        <field id="enhanced_sync/copy_lastname">0</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

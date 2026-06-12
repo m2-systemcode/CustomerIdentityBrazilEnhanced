@@ -1,0 +1,47 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+
+$viewModel = $block->getViewModel();
+$enhancedViewModel = $block->getData('enhanced_view_model');
+$copyFirstnameRequired = $enhancedViewModel->isCopyFirstnameEnabled()
+    && $viewModel->isFieldVisible('socialname')
+    && $enhancedViewModel->isFieldRequiredByConfig('socialname');
+$copyLastnameRequired = $enhancedViewModel->isCopyLastnameEnabled()
+    && $viewModel->isFieldVisible('tradename')
+    && $enhancedViewModel->isFieldRequiredByConfig('tradename');
+
+echo $block->getLayout()
+    ->createBlock(\Magento\Framework\View\Element\Template::class)
+    ->setTemplate('SystemCode_CustomerIdentityBrazilEnhanced::identity/fields-enhanced.phtml')
+    ->setData('view_model', $viewModel)
+    ->setData('enhanced_view_model', $enhancedViewModel)
+    ->toHtml();
+?>
+
+<script type="text/x-magento-init">
+    {
+        "#form-validate": {
+            "SystemCode_CustomerIdentityBrazil/js/validation-init": {}
+        },
+        "#cpf": {
+            "SystemCode_CustomerIdentityBrazil/js/widget/input-mask": {
+                "maskType": "cpf"
+            }
+        },
+        "#cnpj": {
+            "SystemCode_CustomerIdentityBrazil/js/widget/input-mask": {
+                "maskType": "cnpj"
+            }
+        },
+        "#taxvat": {
+            "SystemCode_CustomerIdentityBrazil/js/widget/taxvat-identity-mask": {}
+        }<?php if ($viewModel->shouldShowPersonTypeToggle()): ?>,
+        ".brazil-identity-person-type": {
+            "SystemCode_CustomerIdentityBrazilEnhanced/js/change-person-type": {
+                "copyFirstnameRequired": <?= $copyFirstnameRequired ? 'true' : 'false' ?>,
+                "copyLastnameRequired": <?= $copyLastnameRequired ? 'true' : 'false' ?>,
+                "fieldRequirements": <?= /* @noEscape */ json_encode($enhancedViewModel->getJsFieldRequirements()) ?>
+            }
+        }<?php endif; ?>
+    }
+</script>

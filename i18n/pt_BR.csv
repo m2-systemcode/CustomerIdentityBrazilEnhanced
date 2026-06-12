@@ -1,0 +1,27 @@
+"Extra Fields Synchronization","Sincronização de Campos Adicionais"
+"Optional sync from dedicated attributes to Magento native customer
+fields.","Sincronização opcional dos atributos dedicados para os campos nativos do Magento."
+"Copy CPF/CNPJ to Tax/VAT","Copiar CPF/CNPJ para Tax/VAT"
+"Sync the CPF or CNPJ attribute value to the native Tax/VAT field.","Sincroniza o valor do atributo CPF ou CNPJ para o campo nativo Tax/VAT."
+"Use First Name as Social Name","Usar Nome como Razão Social"
+"When enabled, Social Name is not shown and First Name is used as Razão Social
+for corporations.","Quando ativado, Razão Social não é exibida e o Nome é usado como Razão Social para pessoa jurídica."
+"Use Last Name as Trade Name","Usar Sobrenome como Nome Fantasia"
+"When enabled, Trade Name is not shown and Last Name is used as Nome Fantasia
+for corporations.","Quando ativado, Nome Fantasia não é exibido e o Sobrenome é usado como Nome Fantasia para pessoa jurídica."
+"CPF uses a dedicated customer attribute.
+Configure RG visibility separately.","O CPF usa um atributo dedicado. Configure a visibilidade do RG separadamente."
+"CPF","CPF"
+"RG","RG"
+"Visibility and validation for the CPF customer attribute.","Visibilidade e validação do atributo CPF."
+"Visibility and validation for the RG customer attribute.","Visibilidade e validação do atributo RG."
+"CNPJ, Social Name and Trade Name use dedicated customer attributes.
+Configure IE separately.","CNPJ, Razão Social e Nome Fantasia usam atributos dedicados. Configure a IE separadamente."
+"CNPJ","CNPJ"
+"IE","IE"
+"Visibility and validation for the CNPJ customer attribute.","Visibilidade e validação do atributo CNPJ."
+"Visibility and validation for the IE customer attribute.","Visibilidade e validação do atributo IE."
+"Social Name","Razão Social"
+"Visibility and validation for the Social Name customer attribute.","Visibilidade e validação do atributo Razão Social."
+"Trade Name","Nome Fantasia"
+"Visibility and validation for the Trade Name customer attribute.","Visibilidade e validação do atributo Nome Fantasia."

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <customeridentitybrazil>
+            <enhanced_sync>
+                <copy_taxvat>0</copy_taxvat>
+                <copy_firstname>0</copy_firstname>
+                <copy_lastname>0</copy_lastname>
+            </enhanced_sync>
+            <individual>
+                <cpf_show>req</cpf_show>
+                <rg_show>opt</rg_show>
+            </individual>
+            <corporation>
+                <cnpj_show>req</cnpj_show>
+                <ie_show>opt</ie_show>
+                <socialname_show>opt</socialname_show>
+                <tradename_show>opt</tradename_show>
+            </corporation>
+        </customeridentitybrazil>
+    </default>
+</config>

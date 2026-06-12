@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SystemCode\CustomerIdentityBrazilEnhanced\Api\ConfigInterface"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Model\Config"/>
+    <type name="SystemCode\CustomerIdentityBrazil\Model\CustomerIdentity\FieldVisibility">
+        <plugin name="systemcode_customeridentitybrazil_enhanced_field_visibility"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Plugin\CustomerIdentity\FieldVisibilityPlugin"/>
+    </type>
+    <type name="SystemCode\CustomerIdentityBrazil\Model\CustomerIdentity\PersonType">
+        <plugin name="systemcode_customeridentitybrazil_enhanced_person_type"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Plugin\CustomerIdentity\PersonTypePlugin"/>
+    </type>
+    <type name="SystemCode\CustomerIdentityBrazil\Model\Customer\SaveValidator">
+        <plugin name="systemcode_customeridentitybrazil_enhanced_save_validator"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Plugin\Customer\SaveValidatorPlugin"/>
+    </type>
+    <type name="SystemCode\CustomerIdentityBrazil\Model\Checkout\IdentityConfig">
+        <plugin name="systemcode_customeridentitybrazil_enhanced_identity_config"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Plugin\Checkout\IdentityConfigPlugin"/>
+    </type>
+    <type name="SystemCode\CustomerIdentityBrazil\Model\Checkout\QuoteIdentity">
+        <plugin name="systemcode_customeridentitybrazil_enhanced_quote_identity"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Plugin\Checkout\QuoteIdentityPlugin"/>
+    </type>
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="systemcode_customeridentitybrazil_enhanced_shipping_information"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Plugin\Checkout\ShippingInformationManagementPlugin"
+                sortOrder="30"/>
+    </type>
+    <type name="Magento\Quote\Model\QuoteManagement">
+        <plugin name="systemcode_customeridentitybrazil_enhanced_quote_submit"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Plugin\Quote\QuoteManagementPlugin"
+                sortOrder="30"/>
+    </type>
+    <type name="Magento\Sales\Model\Order">
+        <plugin name="systemcode_customeridentitybrazil_enhanced_order_extension"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Plugin\Api\OrderExtensionPlugin"
+                sortOrder="20"/>
+    </type>
+    <type name="SystemCode\CustomerIdentityBrazil\ViewModel\Adminhtml\Order\Identity">
+        <plugin name="systemcode_customeridentitybrazil_enhanced_admin_identity"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Plugin\Adminhtml\Order\IdentityPlugin"/>
+    </type>
+    <type name="Magento\Customer\Block\Widget\Taxvat">
+        <plugin name="systemcode_customeridentitybrazil_enhanced_taxvat"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Plugin\Block\Widget\TaxvatPlugin"
+                sortOrder="20"/>
+    </type>
+    <type name="Magento\Eav\Model\Validator\Attribute\Data">
+        <plugin name="systemcode_customeridentitybrazil_enhanced_eav_data_validator"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Plugin\Eav\Validator\AttributeDataPlugin"
+                sortOrder="20"/>
+    </type>
+    <type name="Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend">
+        <plugin name="systemcode_customeridentitybrazil_enhanced_eav_backend_validator"
+                type="SystemCode\CustomerIdentityBrazilEnhanced\Plugin\Eav\Entity\Attribute\BackendPlugin"
+                sortOrder="20"/>
+    </type>
+</config>
