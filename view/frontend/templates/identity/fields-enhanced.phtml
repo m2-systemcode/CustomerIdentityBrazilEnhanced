@@ -1,0 +1,141 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \SystemCode\CustomerIdentityBrazil\ViewModel\CustomerIdentity $viewModel */
+/** @var \SystemCode\CustomerIdentityBrazilEnhanced\ViewModel\CustomerIdentity $enhancedViewModel */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$viewModel = $block->getViewModel();
+$enhancedViewModel = $block->getData('enhanced_view_model');
+$personType = $viewModel->getPersonType();
+$cpfFieldClass = $escaper->escapeHtmlAttr($viewModel->getRequiredFieldClass('cpf'));
+$cpfInputClass = $escaper->escapeHtmlAttr($viewModel->getRequiredInputClass('cpf'));
+$rgFieldClass = $escaper->escapeHtmlAttr($viewModel->getRequiredFieldClass('rg'));
+$socialnameFieldClass = $escaper->escapeHtmlAttr($viewModel->getRequiredFieldClass('socialname'));
+$socialnameInputClass = $escaper->escapeHtmlAttr($viewModel->getRequiredInputClass('socialname'));
+$tradenameFieldClass = $escaper->escapeHtmlAttr($viewModel->getRequiredFieldClass('tradename'));
+$tradenameInputClass = $escaper->escapeHtmlAttr($viewModel->getRequiredInputClass('tradename'));
+$cnpjFieldClass = $escaper->escapeHtmlAttr($viewModel->getRequiredFieldClass('cnpj'));
+$cnpjInputClass = $escaper->escapeHtmlAttr($viewModel->getRequiredInputClass('cnpj'));
+$ieFieldClass = $escaper->escapeHtmlAttr($viewModel->getRequiredFieldClass('ie'));
+?>
+<?php if ($viewModel->showIndividualSection()): ?>
+    <div class="fieldset brazil-identity-individual"
+         data-container="type-individual"<?= $personType === 'cnpj' ? ' style="display:none"' : '' ?>>
+        <?php if ($viewModel->isFieldVisible('cpf')): ?>
+            <div class="field brazil-identity-field<?= /* @noEscape */ $cpfFieldClass ?>">
+                <label class="label" for="cpf"><span><?= $escaper->escapeHtml(__('CPF')) ?></span></label>
+                <div class="control">
+                    <input type="text"
+                           id="cpf"
+                           name="cpf"
+                           value="<?= $escaper->escapeHtmlAttr($viewModel->getFormDataValue('cpf')) ?>"
+                           title="<?= $escaper->escapeHtmlAttr(__('CPF')) ?>"
+                           class="input-text validate-cpf<?= /* @noEscape */ $cpfInputClass ?>"
+                           <?php if ($viewModel->isFieldRequired('cpf')): ?>
+                           data-validate="{required:true, 'validate-cpf':true}"
+                           aria-required="true"
+                           <?php else: ?>
+                           data-validate="{'validate-cpf':true}"
+                           <?php endif; ?>/>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php if ($viewModel->isFieldVisible('rg')): ?>
+            <div class="field brazil-identity-field<?= /* @noEscape */ $rgFieldClass ?>">
+                <label class="label" for="rg"><span><?= $escaper->escapeHtml(__('RG')) ?></span></label>
+                <div class="control">
+                    <input type="text"
+                           id="rg"
+                           name="rg"
+                           value="<?= $escaper->escapeHtmlAttr($viewModel->getFormDataValue('rg')) ?>"
+                           title="<?= $escaper->escapeHtmlAttr(__('RG')) ?>"
+                           class="input-text<?= $escaper->escapeHtmlAttr($viewModel->getRequiredInputClass('rg')) ?>"
+                           <?php if ($viewModel->isFieldRequired('rg')): ?>
+                           data-validate="{required:true}"
+                           aria-required="true"
+                           <?php endif; ?>/>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+
+<?php if ($viewModel->showCorporationSection()): ?>
+    <div class="fieldset brazil-identity-corporation"
+         data-container="type-corporation"<?= $personType === 'cpf' ? ' style="display:none"' : '' ?>>
+        <?php if ($viewModel->isFieldVisible('socialname') && !$enhancedViewModel->isCopyFirstnameEnabled()): ?>
+            <div class="field brazil-identity-field<?= /* @noEscape */ $socialnameFieldClass ?>">
+                <label class="label" for="socialname">
+                    <span><?= $escaper->escapeHtml(__('Social Name')) ?></span>
+                </label>
+                <div class="control">
+                    <input type="text"
+                           id="socialname"
+                           name="socialname"
+                           value="<?= $escaper->escapeHtmlAttr($viewModel->getFormDataValue('socialname')) ?>"
+                           title="<?= $escaper->escapeHtmlAttr(__('Social Name')) ?>"
+                           class="input-text<?= /* @noEscape */ $socialnameInputClass ?>"
+                           <?php if ($viewModel->isFieldRequired('socialname')): ?>
+                           data-validate="{required:true}"
+                           aria-required="true"
+                           <?php endif; ?>/>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php if ($viewModel->isFieldVisible('tradename') && !$enhancedViewModel->isCopyLastnameEnabled()): ?>
+            <div class="field brazil-identity-field<?= /* @noEscape */ $tradenameFieldClass ?>">
+                <label class="label" for="tradename">
+                    <span><?= $escaper->escapeHtml(__('Trade Name')) ?></span>
+                </label>
+                <div class="control">
+                    <input type="text"
+                           id="tradename"
+                           name="tradename"
+                           value="<?= $escaper->escapeHtmlAttr($viewModel->getFormDataValue('tradename')) ?>"
+                           title="<?= $escaper->escapeHtmlAttr(__('Trade Name')) ?>"
+                           class="input-text<?= /* @noEscape */ $tradenameInputClass ?>"
+                           <?php if ($viewModel->isFieldRequired('tradename')): ?>
+                           data-validate="{required:true}"
+                           aria-required="true"
+                           <?php endif; ?>/>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php if ($viewModel->isFieldVisible('cnpj')): ?>
+            <div class="field brazil-identity-field<?= /* @noEscape */ $cnpjFieldClass ?>">
+                <label class="label" for="cnpj"><span><?= $escaper->escapeHtml(__('CNPJ')) ?></span></label>
+                <div class="control">
+                    <input type="text"
+                           id="cnpj"
+                           name="cnpj"
+                           value="<?= $escaper->escapeHtmlAttr($viewModel->getFormDataValue('cnpj')) ?>"
+                           title="<?= $escaper->escapeHtmlAttr(__('CNPJ')) ?>"
+                           class="input-text validate-cnpj<?= /* @noEscape */ $cnpjInputClass ?>"
+                           <?php if ($viewModel->isFieldRequired('cnpj')): ?>
+                           data-validate="{required:true, 'validate-cnpj':true}"
+                           aria-required="true"
+                           <?php else: ?>
+                           data-validate="{'validate-cnpj':true}"
+                           <?php endif; ?>/>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php if ($viewModel->isFieldVisible('ie')): ?>
+            <div class="field brazil-identity-field<?= /* @noEscape */ $ieFieldClass ?>">
+                <label class="label" for="ie"><span><?= $escaper->escapeHtml(__('IE')) ?></span></label>
+                <div class="control">
+                    <input type="text"
+                           id="ie"
+                           name="ie"
+                           value="<?= $escaper->escapeHtmlAttr($viewModel->getFormDataValue('ie')) ?>"
+                           title="<?= $escaper->escapeHtmlAttr(__('IE')) ?>"
+                           class="input-text<?= $escaper->escapeHtmlAttr($viewModel->getRequiredInputClass('ie')) ?>"
+                           <?php if ($viewModel->isFieldRequired('ie')): ?>
+                           data-validate="{required:true}"
+                           aria-required="true"
+                           <?php endif; ?>/>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

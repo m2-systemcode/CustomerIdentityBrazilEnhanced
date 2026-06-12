@@ -1,0 +1,32 @@
+"Extra Fields Synchronization","Extra Fields Synchronization"
+"Optional sync from dedicated attributes to Magento native customer
+fields.","Optional sync from dedicated attributes to Magento native customer
+fields."
+"Copy CPF/CNPJ to Tax/VAT","Copy CPF/CNPJ to Tax/VAT"
+"Sync the CPF or CNPJ attribute value to the native Tax/VAT field.","Sync the CPF or CNPJ attribute value to the native Tax/VAT field."
+"Use First Name as Social Name","Use First Name as Social Name"
+"When enabled, Social Name is not shown and First Name is used as Razão Social
+for corporations.","When enabled, Social Name is not shown and First Name is used as Razão Social
+for corporations."
+"Use Last Name as Trade Name","Use Last Name as Trade Name"
+"When enabled, Trade Name is not shown and Last Name is used as Nome Fantasia
+for corporations.","When enabled, Trade Name is not shown and Last Name is used as Nome Fantasia
+for corporations."
+"CPF uses a dedicated customer attribute.
+Configure RG visibility separately.","CPF uses a dedicated customer attribute.
+Configure RG visibility separately."
+"CPF","CPF"
+"Visibility and validation for the CPF customer attribute.","Visibility and validation for the CPF customer attribute."
+"Visibility and validation for the RG customer attribute.","Visibility and validation for the RG customer attribute."
+"CNPJ, Social Name and Trade Name use dedicated customer attributes.
+Configure IE separately.","CNPJ, Social Name and Trade Name use dedicated customer attributes.
+Configure IE separately."
+"CNPJ","CNPJ"
+"Visibility and validation for the CNPJ customer attribute.","Visibility and validation for the CNPJ customer attribute."
+"Visibility and validation for the IE customer attribute.","Visibility and validation for the IE customer attribute."
+"Social Name","Social Name"
+"Visibility and validation for the Social Name customer attribute.","Visibility and validation for the Social Name customer attribute."
+"Trade Name","Trade Name"
+"Visibility and validation for the Trade Name customer attribute.","Visibility and validation for the Trade Name customer attribute."
+"RG","RG"
+"IE","IE"

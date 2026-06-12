@@ -1,0 +1,20 @@
+{
+    "name": "systemcode/customer-identity-brazil-enhanced",
+    "description": "Separate CPF, CNPJ, Social Name and Trade Name fields for Brazil Customer Identity.",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0"
+    ],
+    "require": {
+        "systemcode/customer-identity-brazil": "^2.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "SystemCode\\CustomerIdentityBrazilEnhanced\\": ""
+        }
+    }
+}
